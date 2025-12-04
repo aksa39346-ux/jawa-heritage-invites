@@ -1,88 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 40 33% 95%;
+    --foreground: 30 40% 8%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 40 30% 97%;
+    --card-foreground: 30 40% 8%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 40 30% 97%;
+    --popover-foreground: 30 40% 8%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 38 35% 68%;
+    --primary-foreground: 30 40% 8%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 30 40% 20%;
+    --secondary-foreground: 40 33% 95%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 40 20% 90%;
+    --muted-foreground: 30 20% 40%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 38 35% 68%;
+    --accent-foreground: 30 40% 8%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 38 30% 80%;
+    --input: 38 30% 85%;
+    --ring: 38 35% 68%;
 
     --radius: 0.5rem;
 
+    /* Jawa Heritage Custom Colors */
+    --jawa-gold: 38 35% 68%;
+    --jawa-gold-light: 38 40% 78%;
+    --jawa-brown: 30 40% 20%;
+    --jawa-brown-light: 30 35% 30%;
+    --jawa-cream: 40 33% 95%;
+    --jawa-cream-dark: 40 25% 90%;
+    --jawa-black: 30 25% 4%;
+
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(38 35% 68%), hsl(38 50% 75%));
+    --gradient-dark: linear-gradient(180deg, hsl(30 40% 8%), hsl(30 35% 15%));
+    --gradient-cream: linear-gradient(180deg, hsl(40 33% 95%), hsl(40 25% 90%));
+    --gradient-hero-overlay: linear-gradient(180deg, rgba(13, 12, 10, 0.3) 0%, rgba(13, 12, 10, 0.6) 100%);
+
+    /* Shadows */
+    --shadow-gold: 0 10px 40px -10px hsl(38 35% 68% / 0.4);
+    --shadow-elegant: 0 20px 60px -15px hsl(30 40% 8% / 0.15);
+    --shadow-card: 0 4px 20px hsl(30 40% 8% / 0.08);
+
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 30 25% 4%;
+    --foreground: 40 33% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 30 30% 8%;
+    --card-foreground: 40 33% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 30 30% 8%;
+    --popover-foreground: 40 33% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 38 35% 68%;
+    --primary-foreground: 30 40% 8%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 30 30% 15%;
+    --secondary-foreground: 40 33% 95%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 30 25% 12%;
+    --muted-foreground: 40 15% 60%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 38 35% 68%;
+    --accent-foreground: 30 40% 8%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 40 33% 95%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 30 25% 18%;
+    --input: 30 25% 18%;
+    --ring: 38 35% 68%;
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -99,7 +115,225 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground;
+  html {
+    scroll-behavior: smooth;
   }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer components {
+  /* Javanese Ornament Border */
+  .ornament-border {
+    @apply relative;
+  }
+  
+  .ornament-border::before,
+  .ornament-border::after {
+    content: '';
+    @apply absolute left-1/2 -translate-x-1/2 h-px w-32 bg-gradient-to-r from-transparent via-primary to-transparent;
+  }
+  
+  .ornament-border::before {
+    @apply top-0;
+  }
+  
+  .ornament-border::after {
+    @apply bottom-0;
+  }
+
+  /* Gold Shine Effect */
+  .gold-shine {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--jawa-gold)) 0%,
+      hsl(var(--jawa-gold-light)) 50%,
+      hsl(var(--jawa-gold)) 100%
+    );
+    background-size: 200% 100%;
+    animation: shine 3s ease-in-out infinite;
+  }
+
+  /* Batik Pattern Overlay */
+  .batik-pattern {
+    @apply relative;
+  }
+  
+  .batik-pattern::before {
+    content: '';
+    @apply absolute inset-0 opacity-[0.04] pointer-events-none;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D2B887' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* Premium Card */
+  .premium-card {
+    @apply bg-card rounded-lg p-8 shadow-elegant border border-primary/10;
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Elegant Button */
+  .btn-elegant {
+    @apply inline-flex items-center justify-center px-8 py-4 font-display text-sm tracking-wider uppercase;
+    @apply bg-primary text-primary-foreground rounded-sm;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:shadow-gold hover:-translate-y-0.5;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary/50;
+  }
+
+  /* Section Title */
+  .section-title {
+    @apply font-display text-3xl md:text-4xl text-secondary text-center mb-4;
+  }
+
+  /* Gold Text */
+  .text-gold {
+    color: hsl(var(--jawa-gold));
+  }
+
+  /* Timeline Line */
+  .timeline-line {
+    @apply absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/20 via-primary to-primary/20;
+  }
+}
+
+@layer utilities {
+  /* Font Families */
+  .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  .font-sans {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* Text Shadow */
+  .text-shadow {
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 25px rgba(0, 0, 0, 0.6), 0 0 50px rgba(0, 0, 0, 0.4), 0 0 80px rgba(210, 184, 135, 0.3);
+  }
+
+  /* Animations */
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-left {
+    animation: slideLeft 0.8s ease-out forwards;
+  }
+
+  .animate-slide-right {
+    animation: slideRight 0.8s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.6s ease-out forwards;
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .animate-pulse-soft {
+    animation: pulseSoft 2s ease-in-out infinite;
+  }
+
+  /* Animation Delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+  .delay-600 { animation-delay: 600ms; }
+}
+
+/* Keyframes */
+@keyframes shine {
+  0%, 100% { background-position: 200% 0; }
+  50% { background-position: -200% 0; }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulseSoft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--jawa-cream));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--jawa-gold));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--jawa-brown-light));
 }
