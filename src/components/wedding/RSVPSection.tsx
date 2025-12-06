@@ -12,21 +12,44 @@ const RSVPSection = () => {
     guests: '1',
     attendance: 'hadir',
     phone: '',
+    message: '',
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      // Save to localStorage
+      const rsvpData = {
+        id: `rsvp_web_${Date.now()}`,
+        name: formData.name,
+        phone: formData.phone,
+        attendance: formData.attendance,
+        guests: formData.guests,
+        message: formData.message,
+        created_at: new Date().toISOString()
+      };
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    toast({
-      title: 'RSVP Terkirim!',
-      description: 'Terima kasih atas konfirmasi kehadiran Anda.',
-    });
+      const existingRSVPs = JSON.parse(localStorage.getItem('wedding_rsvp_list') || '[]');
+      existingRSVPs.unshift(rsvpData);
+      localStorage.setItem('wedding_rsvp_list', JSON.stringify(existingRSVPs));
+
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      toast({
+        title: 'RSVP Terkirim!',
+        description: 'Terima kasih atas konfirmasi kehadiran Anda.',
+      });
+    } catch (error: any) {
+      console.error('Error submitting RSVP:', error);
+      setIsSubmitting(false);
+      toast({
+        title: 'Error',
+        description: error.message || 'Gagal mengirim RSVP',
+        variant: 'destructive'
+      });
+    }
   };
 
   return (
@@ -155,6 +178,24 @@ const RSVPSection = () => {
                     placeholder="08xxxxxxxxxx"
                   />
                 </div>
+              </div>
+
+              {/* Message (Optional) */}
+              <div>
+                <label className="block text-sm font-medium text-secondary mb-2">
+                  Pesan Tambahan (Opsional)
+                </label>
+                <textarea
+                  rows={3}
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  className="w-full px-4 py-3 bg-background border border-border rounded-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors resize-none"
+                  placeholder="Tulis pesan tambahan jika ada..."
+                  maxLength={200}
+                />
+                <p className="text-xs text-muted-foreground mt-1">
+                  {formData.message.length} / 200 karakter
+                </p>
               </div>
 
               {/* Submit */}

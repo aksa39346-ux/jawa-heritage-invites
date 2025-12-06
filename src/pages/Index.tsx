@@ -10,6 +10,7 @@ import RSVPSection from '@/components/wedding/RSVPSection';
 import GiftSection from '@/components/wedding/GiftSection';
 import WishesSection from '@/components/wedding/WishesSection';
 import FooterSection from '@/components/wedding/FooterSection';
+import MusicPlayer from '@/components/MusicPlayer';
 import { Music, Music2 } from 'lucide-react';
 
 const Index = () => {
@@ -30,6 +31,12 @@ const Index = () => {
       {/* SEO Meta */}
       <title>Undangan Pernikahan Arya & Dewi | 21 Juni 2025</title>
       <meta name="description" content="Kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam pernikahan Arya Wijaya Kusuma & Dewi Ayu Paramitha pada Sabtu, 21 Juni 2025 di Yogyakarta." />
+
+      {/* Music Player */}
+      <MusicPlayer 
+        isPlaying={isMusicPlaying} 
+        onPlayStateChange={setIsMusicPlaying}
+      />
 
       <main className="relative overflow-x-hidden">
         {/* Hero Section - Always visible */}
